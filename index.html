@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The little Angels of my Life</title>
+	
+	<style>
+		body {
+			background-image: url('https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/587623227_4040477786095688_4964322455856215904_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=gLHwAwt-EewQ7kNvwGnUnfV&_nc_oc=AdqFMOF6RYtQqGg5DSnCIJlzDG2VOLz0GjYk1S0vSI6lpe4HwZeEWutKkBOQ8p-_jt0&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=ABB120hK2bcVQPl_rqpWXQ&_nc_ss=7a32e&oh=00_AfwpTXRFy_EbEhSef_i7sAxhH6yy1_hv3TUASj-hwW3Y4g&oe=69CE54B2');
+			background-size: cover;
+			background-attachment: fixed;
+			background-position: center;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			text-align:center;
+			margin: 0;
+			padding: 20px;
+	    }  
+		
+		.hoofd-container {
+			background-color: rgba(255, 255, 255, 0.2);
+			padding: 40px;
+			border-radius: 30px;
+			display: inline-block;
+			max-width: 900px;
+		}
+		
+		.foto-container {
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+			
+			.fotolijstje {
+			background-color: rgba(0, 0, 0, 0.7);
+			padding: 20px;
+			border-radius: 15px;
+			margin: 40px;
+			transition: 0.3s;
+			flex: 1;
+			min-width: 300px;
+        }
+		
+        .fotolijstje:hover {
+			background-color: rgba(133, 117, 80, 0.9);
+        }	 
+
+		.foto-in-lijstje {
+			width: 100%;
+			height: auto;
+			border-radius: 5px;
+		}	
+        
+        .fotolijstje-names {
+			color: white;
+			font-size: 20px;
+        } 	 
+	   
+		ul.dieren-lijst {
+			display: flex;
+			justify-content: center;
+			list-style-type: none;
+			padding: 0;
+			flex-wrap: wrap;
+		}
+		ul.dieren-lijst li {
+			margin: 0 15px;
+			position: relative;
+		}	
+		
+		.hover-foto {
+			opacity: 0;
+			visibility: hidden;
+			max-width: 90vw;
+			height: 300px;
+			object-fit: cover;
+			border: 5px solid white;
+			position: absolute;
+			bottom: 150%
+			left: 50%;
+			transform: translateX(-50%);
+			transition: opacity 0.3s;
+			z-index: 10;
+		}
+
+		ul.dieren-lijst li:hover .hover-foto {
+			opacity: 1;
+			visibility: visible;
+		}	
+		
+		.animal-names {
+			color: black; 
+		}
+		
+		.animal-names:hover {
+			color: white; background-color: purple; 
+			padding: 5px; 
+			border-radius: 5px; 
+		}
+		
+		.knoppen-container {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+			margin-top: 30px;
+		}
+		
+        .knop {
+			background-color: purple;
+			color: white;
+			padding: 10px;
+			border-radius: 10px;
+			text-decoration: none;
+			display: inline-block;
+        }
+		.knop:hover {background-color: darkblue;}
+		
+		.pagina-titel {
+			color: black;
+			font-size: 32px;
+		}
+		
+		.welkom-tekst {
+			color: black;
+		}
+		
+		@media (max-width: 768px) {
+			.hoofd-container {
+				padding: 20px;
+				margin: 10px;
+			}
+			.pagina-titel {
+				font-size: 24px;
+			}	
+		}	
+    </style>
+ </head>
+  
+    <body>
+		<div class="hoofd-container">
+		
+			<h1 class="pagina-titel">All the lovely little pets i had in my life</h1>
+			<p><strong class="welkom-tekst">Hello Everyone, welcome to my remembrance page of all the beautiful animals that enriched my life</strong></p>
+		
+			<ul class="dieren-lijst">
+				<li>
+					<strong class="animal-names">Aria</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/476164859_3659686580841479_1426908768559198095_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=13ZWNCRyrYEQ7kNvwHjhz2s&_nc_oc=Ado_gpddSQrGRn4H42G21t0IQZ60V2E_8oYH4V8JHnMn8lDqbkw1Xd2vGUiCQKf74Mc&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=OURM8yXv6SaA7ecMweyK6Q&_nc_ss=7a32e&oh=00_AfxouQYZLbju-ds37S2yK7l60ORUYa1QBRh-6etpv-7fMA&oe=69CE5AF2" alt="Foto Aria">
+				</li>
+				<li>
+					<strong class="animal-names">Chessie</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/474457612_3642990122511125_8468056225312009538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=SUAzESODrREQ7kNvwHJRfty&_nc_oc=AdosBYR3kvFgc-vdrNiguJ18eUmEwuu2ubfMZMV2X_Z82we9V2VeMu2StGO4clRqEwo&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=h4N3_fzd5TFZID_h8Aj30A&_nc_ss=7a32e&oh=00_Afx1uPZSJ-aqxrZh6iznbsmjUfAZyPSDQsm1xVu0_5mLUg&oe=69CE54B7" alt="foto van Chessie">
+				</li>	
+				<li>
+					<strong class="animal-names">Marshie I</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t1.6435-9/119170283_2119777488165737_2794534533521712068_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=zk6gkeHNUtsQ7kNvwF_0lny&_nc_oc=AdqxWXG-in25xWCo-ljTImLrGfJvnDmH21bWYvyQMB6XKcMAyI-hSyJ_VSaCVoy4Ts4&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=4INnq7cze_IYbQloDUvwng&_nc_ss=7a32e&oh=00_AfyzoslGdA9pH033495e9lOWQ8EMA7dem0CVpm0LGPOzSg&oe=69EFE4EA" alt="foto Marshie I">
+				</li>
+				<li>
+					<strong class="animal-names">Angelus</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/490354908_3734005570076246_2226715248478369176_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=SzqBjMADduoQ7kNvwFcYpTC&_nc_oc=Ado066njtdpCSLAKFc4ws92wbcM0vWw5bTvGYMTGGB3_pH1kZE_06gU960tRETCjwCI&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=Ha-Avetw5XBbiIZwA_FHqA&_nc_ss=7a32e&oh=00_AfzlZjcAcLiXufZjGdf6rqD0kOBQ7xUez1KhZDlWfPpGoQ&oe=69CE5E6C" alt="foto Angelus">
+				</li>
+				<li>
+					<strong class="animal-names">Spikey</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/490276568_3734005863409550_7818174963816762403_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=sFActVi2IPgQ7kNvwGvFm60&_nc_oc=AdpVEeKMYEosKjB8vv1Lpx9Xg3FpWO5DocVWIhhbI7UqRxOtl-3RW_n84vVvx9qj370&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=dqE9AUluE-QkRuqh4jwCgQ&_nc_ss=7a32e&oh=00_Afy-xLO9UZQjfd07QONIIjVthSJ7mfpnXGj0hTBcJszL1Q&oe=69CE4346" alt="foto Spikey">
+				</li>
+				<li>	
+					<strong class="animal-names">Teddie</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/490244169_3734005746742895_5779968990336816538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=7mkMmog9QdkQ7kNvwH7a8R7&_nc_oc=AdppBIJKogqc-Vh1Ng_9pmA_6ELkui8CMhz0BRgtKEJk680H1fMbJbFcX3wqWMDgonQ&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=pAziNBUNTwgdEV0iiAJ0rQ&_nc_ss=7a32e&oh=00_AfwwZtuD0SNIFqjYB_8J73OW_TPLEqnIsMaUQJOwF0kJRQ&oe=69CE541C" alt="foto Teddie">
+				</li>
+				<li>
+					<strong class="animal-names">Marshie II</strong> (<em>Guinea Pig</em>)
+					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/481783641_3688921191251351_4649749207260027447_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dd6889&_nc_ohc=vt738tKGfKIQ7kNvwG0wyI1&_nc_oc=AdrpVmFeardWcAZ96uSuItbet4RtkACKmmMWAv-OmEBmo5wSQZ8KLKGdHu_HfcN1sks&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=M6Cl5oUqF8-t7vxxemAHYQ&_nc_ss=7a32e&oh=00_AfzyfqGHiVgKoLApU2GwZGVwP6XiFrh_TV_mcd4WEeRy6Q&oe=69CE47AE" alt="foto Marshie II">
+				</li>
+			</ul>
+
+		<div class="foto-container">
+				<div class="fotolijstje">
+					<h2 class="fotolijstje-names"> My Silly Nirani</h2>
+					<img class="foto-in-lijstje" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/601343060_4071319009678232_5317605544902524530_n.jpg?stp=dst-jpegr_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=4VKXNKC4-XEQ7kNvwGC4QZI&_nc_oc=AdoS16yQqX2lkWv9zpBL-p0RdZbgnS9oGsPCzpiYBVDAYVN2zVAGPSMK0meGFYXhfTo&_nc_zt=23&se=-1&_nc_ht=scontent.frtm1-2.fna&_nc_gid=w6aDi3kkrU6wFIrwCM_9hQ&_nc_ss=7a32e&oh=00_AfzQ9mfLikouYtPz0UqZinXTDUfBqhFZsIpUuTlmhCX9Wg&oe=69CDEB4D" alt = "Mijn poes Nirani,m et haar tong uit haar mond" style="width: 300px;">
+			</div>
+			<div class="fotolijstje">
+				<h3 class="fotolijstje-names"> My beautiful Myrrhe</h3>
+				<img class="foto-in-lijstje" src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/489921935_3734005786742891_7609273697337795637_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=eRGaLSkIwgQQ7kNvwEpt8zZ&_nc_oc=Adri1lRoYe3x9RHBGND_HhJ7VnSJ_ItHuVOiMyUh7TbjcqjzjCR2oE3m1HluXO0Ie1Y&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=J7_oYvxKET6b35tSFdfLkA&_nc_ss=7a32e&oh=00_Afw8bSw2uOZVWDW97D5TB0U6lCDPeTSOXFpCS1S5WNv6HA&oe=69CE17DE" alt="zwart-wit foto van mijn Poes Myrrhe" style="width: 300px;">
+			</div>
+		</div>	
+
+		<div class="knoppen-container">
+			<a class="knop" href="https://nl.wikipedia.org/wiki/Cavia's">Lees hier meer over Cavia's!</a>			
+			<a class="knop" href="https://nl.wikipedia.org/wiki/Kat_(dier)">Lees hier meer over katten!</a>
+		</div>
+    </body>
+</html>
