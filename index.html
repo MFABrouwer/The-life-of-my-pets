@@ -1,193 +1,675 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>The little Angels of my Life</title>
-	
-	<style>
-		body {
-			background-image: url('https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/587623227_4040477786095688_4964322455856215904_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=gLHwAwt-EewQ7kNvwGnUnfV&_nc_oc=AdqFMOF6RYtQqGg5DSnCIJlzDG2VOLz0GjYk1S0vSI6lpe4HwZeEWutKkBOQ8p-_jt0&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=ABB120hK2bcVQPl_rqpWXQ&_nc_ss=7a32e&oh=00_AfwpTXRFy_EbEhSef_i7sAxhH6yy1_hv3TUASj-hwW3Y4g&oe=69CE54B2');
-			background-size: cover;
-			background-attachment: fixed;
-			background-position: center;
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			text-align:center;
-			margin: 0;
-			padding: 20px;
-	    }  
-		
-		.hoofd-container {
-			background-color: rgba(255, 255, 255, 0.2);
-			padding: 40px;
-			border-radius: 30px;
-			display: inline-block;
-			max-width: 900px;
-		}
-		
-		.foto-container {
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			flex-wrap: wrap;
-		}
-			
-			.fotolijstje {
-			background-color: rgba(0, 0, 0, 0.7);
-			padding: 20px;
-			border-radius: 15px;
-			margin: 40px;
-			transition: 0.3s;
-			flex: 1;
-			min-width: 300px;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Little Angels of My Life</title>
+
+    <!-- Playfair Display for elegant headings, Lato for warm readable body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES — change these once to retheme the whole page ===== */
+        :root {
+            --warm-cream:   #fdf6ec;
+            --warm-brown:   #6b3f1f;
+            --soft-gold:    #c9952a;
+            --deep-green:   #2d4a2d;
+            --light-green:  #4a7a4a;
+            --memorial-bg:  rgba(30, 20, 10, 0.75);
+            --card-bg:      rgba(253, 246, 236, 0.88);
+            --shadow:       0 4px 24px rgba(0,0,0,0.25);
+            --radius:       18px;
         }
-		
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: var(--warm-brown);
+            background-image: url('./assets/background.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .hoofd-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .sectie-kaart {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+        }
+
+        .pagina-header {
+            text-align: center;
+            padding: 60px 40px 40px;
+            background-color: rgba(253, 246, 236, 0.82);
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+        }
+
+        .pagina-titel {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--warm-brown);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .pagina-subtitel {
+            font-size: 1.1rem;
+            color: var(--light-green);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .sectie-titel {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--warm-brown);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .sectie-lijn {
+            width: 60px;
+            height: 3px;
+            background: var(--soft-gold);
+            border-radius: 2px;
+            margin: 0 auto 28px;
+        }
+
+        .intro-tekst {
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--warm-brown);
+            max-width: 680px;
+            margin: 0 auto 30px;
+        }
+
+        .eigenaren-rij {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .eigenaar-kaartje { text-align: center; }
+
+        .eigenaar-foto {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--soft-gold);
+            box-shadow: var(--shadow);
+            display: block;
+            margin: 0 auto 10px;
+            background-color: #ddd;
+        }
+
+        .foto-placeholder {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background: rgba(107, 63, 31, 0.12);
+            border: 3px dashed var(--soft-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--soft-gold);
+            text-align: center;
+            margin: 0 auto 10px;
+            padding: 10px;
+        }
+
+        .eigenaar-naam {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--warm-brown);
+        }
+
+        /* ===== HOVER NAME LIST ===== */
+        ul.dieren-lijst {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        ul.dieren-lijst li { position: relative; }
+
+        .animal-names {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(107, 63, 31, 0.08);
+            color: var(--warm-brown);
+            font-size: 0.95rem;
+            cursor: default;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .animal-names em {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: 4px;
+        }
+
+        ul.dieren-lijst li:hover .animal-names {
+            background: var(--deep-green);
+            color: var(--warm-cream);
+            border-color: var(--soft-gold);
+        }
+
+        .hover-foto {
+            opacity: 0;
+            visibility: hidden;
+            width: 200px; height: 200px;
+            object-fit: cover;
+            border: 4px solid white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+
+        ul.dieren-lijst li:hover .hover-foto,
+        ul.memorial-lijst li:hover .hover-foto {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== PHOTO CARDS (current family) ===== */
+        .foto-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+
+        .fotolijstje {
+            background: rgba(255,255,255,0.7);
+            border-radius: 14px;
+            padding: 20px;
+            width: 260px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
         .fotolijstje:hover {
-			background-color: rgba(133, 117, 80, 0.9);
-        }	 
-
-		.foto-in-lijstje {
-			width: 100%;
-			height: auto;
-			border-radius: 5px;
-		}	
-        
-        .fotolijstje-names {
-			color: white;
-			font-size: 20px;
-        } 	 
-	   
-		ul.dieren-lijst {
-			display: flex;
-			justify-content: center;
-			list-style-type: none;
-			padding: 0;
-			flex-wrap: wrap;
-		}
-		ul.dieren-lijst li {
-			margin: 0 15px;
-			position: relative;
-		}	
-		
-		.hover-foto {
-			opacity: 0;
-			visibility: hidden;
-			max-width: 90vw;
-			height: 300px;
-			object-fit: cover;
-			border: 5px solid white;
-			position: absolute;
-			top: 150%;
-			left: 50%;
-			transform: translateX(-50%);
-			transition: opacity 0.3s;
-			z-index: 10;
-			margin-top: 10px;
-		}
-
-		ul.dieren-lijst li:hover .hover-foto {
-			opacity: 1;
-			visibility: visible;
-		}	
-		
-		.animal-names {
-			color: black; 
-		}
-		
-		.animal-names:hover {
-			color: white; background-color: purple; 
-			padding: 5px; 
-			border-radius: 5px; 
-		}
-		
-		.knoppen-container {
-			display: flex;
-			justify-content: center;
-			gap: 20px;
-			flex-wrap: wrap;
-			margin-top: 30px;
-		}
-		
-        .knop {
-			background-color: purple;
-			color: white;
-			padding: 10px;
-			border-radius: 10px;
-			text-decoration: none;
-			display: inline-block;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.18);
         }
-		.knop:hover {background-color: darkblue;}
-		
-		.pagina-titel {
-			color: black;
-			font-size: 32px;
-		}
-		
-		.welkom-tekst {
-			color: black;
-		}
-		
-		@media (max-width: 768px) {
-			.hoofd-container {
-				padding: 20px;
-				margin: 10px;
-			}
-			.pagina-titel {
-				font-size: 24px;
-			}	
-		}	
+
+        /*
+         * CROSSFADE TECHNIQUE
+         * --------------------
+         * Two photos stacked in the same space. The "now" photo flows
+         * normally and sets the wrapper's height; the "young" photo is
+         * position: absolute so it lifts out of the flow and lands exactly
+         * on top. opacity: 0 hides it, and on hover we fade it in.
+         */
+        .foto-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .foto-in-lijstje,
+        .foto-jong {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .foto-jong {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .fotolijstje:hover .foto-jong { opacity: 1; }
+
+        /* Small overlay hint — only shown on current-family cards, not memorial */
+        .sectie-kaart .foto-wrapper::after {
+            content: "hover to see them young 💕";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.55);
+            color: var(--warm-cream);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .sectie-kaart .fotolijstje:hover .foto-wrapper::after { opacity: 1; }
+
+        .foto-placeholder-rect {
+            width: 100%;
+            height: 200px;
+            background: rgba(107, 63, 31, 0.08);
+            border: 2px dashed var(--soft-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--soft-gold);
+            text-align: center;
+            margin-bottom: 12px;
+            padding: 10px;
+        }
+
+        .fotolijstje-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--warm-brown);
+            margin-bottom: 4px;
+        }
+
+        .fotolijstje-soort {
+            font-size: 0.85rem;
+            color: var(--light-green);
+            font-style: italic;
+        }
+
+        .fotolijstje-tekst {
+            font-size: 0.88rem;
+            color: var(--warm-brown);
+            margin-top: 8px;
+            line-height: 1.5;
+            opacity: 0.85;
+        }
+
+        /* ===== IN MEMORIAM SECTION ===== */
+        .memorial-sectie {
+            background: var(--memorial-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .memorial-sectie .sectie-titel { color: var(--warm-cream); }
+        .memorial-sectie .sectie-lijn { background: rgba(201, 149, 42, 0.6); }
+
+        .memorial-intro {
+            text-align: center;
+            color: rgba(253, 246, 236, 0.75);
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        ul.memorial-lijst {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        ul.memorial-lijst li { position: relative; }
+
+        .memorial-naam {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(201, 149, 42, 0.4);
+            color: var(--warm-cream);
+            font-size: 0.95rem;
+            cursor: default;
+            transition: all 0.25s ease;
+        }
+
+        .memorial-naam em {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-left: 4px;
+        }
+
+        ul.memorial-lijst li:hover .memorial-naam {
+            background: rgba(201, 149, 42, 0.25);
+            border-color: var(--soft-gold);
+        }
+
+        /*
+         * MEMORIAL PHOTO CARDS — dark-variant
+         * ------------------------------------
+         * CONTEXTUAL SELECTOR TECHNIQUE
+         * ".memorial-sectie .fotolijstje" means "any .fotolijstje that
+         * sits INSIDE a .memorial-sectie". We reuse the same card structure
+         * as the current-family cards but override just the colors, so
+         * everything else (crossfade, hover lift, sizing) keeps working.
+         */
+        .memorial-sectie .fotolijstje {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(201, 149, 42, 0.2);
+        }
+
+        .memorial-sectie .fotolijstje-name {
+            color: var(--warm-cream);
+        }
+
+        .memorial-sectie .fotolijstje-soort {
+            color: rgba(201, 149, 42, 0.8);
+        }
+
+        .memorial-sectie .fotolijstje-tekst {
+            color: rgba(253, 246, 236, 0.75);
+            opacity: 1;
+        }
+
+        .memorial-sectie .foto-placeholder-rect {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(201, 149, 42, 0.4);
+            color: rgba(201, 149, 42, 0.7);
+        }
+
+        /* ===== BOTTOM BUTTONS ===== */
+        .knoppen-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .knop {
+            background: var(--deep-green);
+            color: var(--warm-cream);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            transition: background 0.25s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .knop:hover {
+            background: var(--warm-brown);
+            transform: translateY(-2px);
+        }
+
+        .pagina-footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(253, 246, 236, 0.6);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .sectie-kaart, .pagina-header, .memorial-sectie { padding: 24px 18px; }
+            .fotolijstje { width: 100%; }
+            .eigenaren-rij { gap: 24px; }
+        }
     </style>
- </head>
-  
-    <body>
-		<div class="hoofd-container">
-		
-			<h1 class="pagina-titel">All the lovely little pets i had in my life</h1>
-			<p><strong class="welkom-tekst">Hello Everyone, welcome to my remembrance page of all the beautiful animals that enriched my life</strong></p>
-		
-			<ul class="dieren-lijst">
-				<li>
-					<strong class="animal-names">Aria</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/476164859_3659686580841479_1426908768559198095_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=13ZWNCRyrYEQ7kNvwHjhz2s&_nc_oc=Ado_gpddSQrGRn4H42G21t0IQZ60V2E_8oYH4V8JHnMn8lDqbkw1Xd2vGUiCQKf74Mc&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=OURM8yXv6SaA7ecMweyK6Q&_nc_ss=7a32e&oh=00_AfxouQYZLbju-ds37S2yK7l60ORUYa1QBRh-6etpv-7fMA&oe=69CE5AF2" alt="Foto Aria">
-				</li>
-				<li>
-					<strong class="animal-names">Chessie</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/474457612_3642990122511125_8468056225312009538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=SUAzESODrREQ7kNvwHJRfty&_nc_oc=AdosBYR3kvFgc-vdrNiguJ18eUmEwuu2ubfMZMV2X_Z82we9V2VeMu2StGO4clRqEwo&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=h4N3_fzd5TFZID_h8Aj30A&_nc_ss=7a32e&oh=00_Afx1uPZSJ-aqxrZh6iznbsmjUfAZyPSDQsm1xVu0_5mLUg&oe=69CE54B7" alt="foto van Chessie">
-				</li>	
-				<li>
-					<strong class="animal-names">Marshie I</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t1.6435-9/119170283_2119777488165737_2794534533521712068_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=zk6gkeHNUtsQ7kNvwF_0lny&_nc_oc=AdqxWXG-in25xWCo-ljTImLrGfJvnDmH21bWYvyQMB6XKcMAyI-hSyJ_VSaCVoy4Ts4&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=4INnq7cze_IYbQloDUvwng&_nc_ss=7a32e&oh=00_AfyzoslGdA9pH033495e9lOWQ8EMA7dem0CVpm0LGPOzSg&oe=69EFE4EA" alt="foto Marshie I">
-				</li>
-				<li>
-					<strong class="animal-names">Angelus</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/490354908_3734005570076246_2226715248478369176_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=SzqBjMADduoQ7kNvwFcYpTC&_nc_oc=Ado066njtdpCSLAKFc4ws92wbcM0vWw5bTvGYMTGGB3_pH1kZE_06gU960tRETCjwCI&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=Ha-Avetw5XBbiIZwA_FHqA&_nc_ss=7a32e&oh=00_AfzlZjcAcLiXufZjGdf6rqD0kOBQ7xUez1KhZDlWfPpGoQ&oe=69CE5E6C" alt="foto Angelus">
-				</li>
-				<li>
-					<strong class="animal-names">Spikey</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/490276568_3734005863409550_7818174963816762403_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=sFActVi2IPgQ7kNvwGvFm60&_nc_oc=AdpVEeKMYEosKjB8vv1Lpx9Xg3FpWO5DocVWIhhbI7UqRxOtl-3RW_n84vVvx9qj370&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=dqE9AUluE-QkRuqh4jwCgQ&_nc_ss=7a32e&oh=00_Afy-xLO9UZQjfd07QONIIjVthSJ7mfpnXGj0hTBcJszL1Q&oe=69CE4346" alt="foto Spikey">
-				</li>
-				<li>	
-					<strong class="animal-names">Teddie</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-3.fna.fbcdn.net/v/t39.30808-6/490244169_3734005746742895_5779968990336816538_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=7mkMmog9QdkQ7kNvwH7a8R7&_nc_oc=AdppBIJKogqc-Vh1Ng_9pmA_6ELkui8CMhz0BRgtKEJk680H1fMbJbFcX3wqWMDgonQ&_nc_zt=23&_nc_ht=scontent.frtm1-3.fna&_nc_gid=pAziNBUNTwgdEV0iiAJ0rQ&_nc_ss=7a32e&oh=00_AfwwZtuD0SNIFqjYB_8J73OW_TPLEqnIsMaUQJOwF0kJRQ&oe=69CE541C" alt="foto Teddie">
-				</li>
-				<li>
-					<strong class="animal-names">Marshie II</strong> (<em>Guinea Pig</em>)
-					<img class="hover-foto" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/481783641_3688921191251351_4649749207260027447_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dd6889&_nc_ohc=vt738tKGfKIQ7kNvwG0wyI1&_nc_oc=AdrpVmFeardWcAZ96uSuItbet4RtkACKmmMWAv-OmEBmo5wSQZ8KLKGdHu_HfcN1sks&_nc_zt=23&_nc_ht=scontent.frtm1-2.fna&_nc_gid=M6Cl5oUqF8-t7vxxemAHYQ&_nc_ss=7a32e&oh=00_AfzyfqGHiVgKoLApU2GwZGVwP6XiFrh_TV_mcd4WEeRy6Q&oe=69CE47AE" alt="foto Marshie II">
-				</li>
-			</ul>
+</head>
 
-		<div class="foto-container">
-				<div class="fotolijstje">
-					<h2 class="fotolijstje-names"> My Silly Nirani</h2>
-					<img class="foto-in-lijstje" src="https://scontent.frtm1-2.fna.fbcdn.net/v/t39.30808-6/601343060_4071319009678232_5317605544902524530_n.jpg?stp=dst-jpegr_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=4VKXNKC4-XEQ7kNvwGC4QZI&_nc_oc=AdoS16yQqX2lkWv9zpBL-p0RdZbgnS9oGsPCzpiYBVDAYVN2zVAGPSMK0meGFYXhfTo&_nc_zt=23&se=-1&_nc_ht=scontent.frtm1-2.fna&_nc_gid=w6aDi3kkrU6wFIrwCM_9hQ&_nc_ss=7a32e&oh=00_AfzQ9mfLikouYtPz0UqZinXTDUfBqhFZsIpUuTlmhCX9Wg&oe=69CDEB4D" alt = "Mijn poes Nirani,m et haar tong uit haar mond" style="width: 300px;">
-			</div>
-			<div class="fotolijstje">
-				<h3 class="fotolijstje-names"> My beautiful Myrrhe</h3>
-				<img class="foto-in-lijstje" src="https://scontent.frtm1-1.fna.fbcdn.net/v/t39.30808-6/489921935_3734005786742891_7609273697337795637_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=eRGaLSkIwgQQ7kNvwEpt8zZ&_nc_oc=Adri1lRoYe3x9RHBGND_HhJ7VnSJ_ItHuVOiMyUh7TbjcqjzjCR2oE3m1HluXO0Ie1Y&_nc_zt=23&_nc_ht=scontent.frtm1-1.fna&_nc_gid=J7_oYvxKET6b35tSFdfLkA&_nc_ss=7a32e&oh=00_Afw8bSw2uOZVWDW97D5TB0U6lCDPeTSOXFpCS1S5WNv6HA&oe=69CE17DE" alt="zwart-wit foto van mijn Poes Myrrhe" style="width: 300px;">
-			</div>
-		</div>	
+<body>
+    <div class="hoofd-container">
 
-		<div class="knoppen-container">
-			<a class="knop" href="https://nl.wikipedia.org/wiki/Cavia's">Lees hier meer over Cavia's!</a>			
-			<a class="knop" href="https://nl.wikipedia.org/wiki/Kat_(dier)">Lees hier meer over katten!</a>
-		</div>
-    </body>
+        <header class="pagina-header">
+            <h1 class="pagina-titel">The Little Angels of My Life</h1>
+            <p class="pagina-subtitel">
+                A remembrance for all the beautiful animals that have enriched my life —
+                past, present, and the ones yet to come. 🐾
+            </p>
+        </header>
+
+        <!-- ===== ABOUT US ===== -->
+        <section class="sectie-kaart">
+            <h2 class="sectie-titel">The Humans Behind the Chaos</h2>
+            <div class="sectie-lijn"></div>
+
+            <p class="intro-tekst">
+                Welcome to our corner of the internet — a living tribute to all the furry,
+                fluffy, and wonderfully weird creatures who chose us as their family.
+                We are Marc &amp; Lena, based in Amsterdam, and our home has always been
+                a little zoo. We wouldn't have it any other way.
+            </p>
+
+            <div class="eigenaren-rij">
+                <div class="eigenaar-kaartje">
+                    <div class="foto-placeholder">📷 Marc's photo coming soon</div>
+                    <p class="eigenaar-naam">Marc</p>
+                </div>
+                <div class="eigenaar-kaartje">
+                    <div class="foto-placeholder">📷 Lena's photo coming soon</div>
+                    <p class="eigenaar-naam">Lena</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CURRENT PETS ===== -->
+        <section class="sectie-kaart">
+            <h2 class="sectie-titel">Our Current Family</h2>
+            <div class="sectie-lijn"></div>
+
+            <ul class="dieren-lijst">
+                <li>
+                    <span class="animal-names">Myrrhe <em>cat</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/gRvS2Pv.jpeg" alt="Myrrhe today">
+                </li>
+                <li>
+                    <span class="animal-names">Nirani <em>cat</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/4C4WbbM.jpeg" alt="Nirani today">
+                </li>
+                <li>
+                    <span class="animal-names">Mr. Bubbles <em>guinea pig</em></span>
+                    <img class="hover-foto" src="" alt="Mr. Bubbles">
+                </li>
+                <li>
+                    <span class="animal-names">Chi-chi <em>guinea pig</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/7evdHQD.jpeg" alt="Chi-chi today">
+                </li>
+                <li>
+                    <span class="animal-names">Freya <em>guinea pig 🇩🇰</em></span>
+                    <img class="hover-foto" src="" alt="Freya">
+                </li>
+            </ul>
+
+            <div class="foto-container">
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/gRvS2Pv.jpeg" alt="Myrrhe today">
+                        <img class="foto-jong"      src="https://i.imgur.com/6QfMWj6.jpeg" alt="Young Myrrhe">
+                    </div>
+                    <h3 class="fotolijstje-name">Myrrhe</h3>
+                    <p class="fotolijstje-soort">Cat · Born 29 October 2011 🎂</p>
+                    <p class="fotolijstje-tekst">Our wise and beautiful elder lady — and Nirani's sister. The two of them came into our lives together and have been with us through everything.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/4C4WbbM.jpeg" alt="Nirani today">
+                        <img class="foto-jong"      src="https://i.imgur.com/3NmH3up.jpeg" alt="Young Nirani">
+                    </div>
+                    <h3 class="fotolijstje-name">Nirani</h3>
+                    <p class="fotolijstje-soort">Cat · Born 29 October 2011 🎂</p>
+                    <p class="fotolijstje-tekst">Myrrhe's sister and our silly girl — born the same day as Myrrhe. The two of them have been side by side their whole lives.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-placeholder-rect">📷 Mr. Bubbles photo coming soon</div>
+                    <h3 class="fotolijstje-name">Mr. Bubbles</h3>
+                    <p class="fotolijstje-soort">Guinea Pig</p>
+                    <p class="fotolijstje-tekst">Loudest wheeks in Amsterdam. Definitely the boss.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/7evdHQD.jpeg" alt="Chi-chi today">
+                        <img class="foto-jong"      src="https://i.imgur.com/XirumaM.jpeg" alt="Baby Chi-chi">
+                    </div>
+                    <h3 class="fotolijstje-name">Chi-chi</h3>
+                    <p class="fotolijstje-soort">Guinea Pig</p>
+                    <p class="fotolijstje-tekst">Tiny but mighty. One of three nest sisters with Marie "Potato" and Freya, all raised by their stepmother Chessie. Rules the cage with an iron paw.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-placeholder-rect">📷 Freya photo coming soon</div>
+                    <h3 class="fotolijstje-name">Freya</h3>
+                    <p class="fotolijstje-soort">Guinea Pig · 🇩🇰 Denmark</p>
+                    <p class="fotolijstje-tekst">One of three nest sisters with Marie "Potato" and Chi-chi, all raised by their stepmother Chessie. Now living her best Scandinavian life.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== IN MEMORIAM ===== -->
+        <section class="memorial-sectie">
+            <h2 class="sectie-titel">In Memoriam</h2>
+            <div class="sectie-lijn"></div>
+
+            <p class="memorial-intro">
+                These little ones are no longer with us, but they are never forgotten.<br>
+                Every one of them left a paw print on our hearts. 🌿
+            </p>
+
+            <!-- Overview list — hover a name to preview -->
+            <ul class="memorial-lijst">
+                <li>
+                    <span class="memorial-naam">Aria <em>guinea pig</em></span>
+                    <img class="hover-foto" src="" alt="Aria">
+                </li>
+                <li>
+                    <span class="memorial-naam">Chessie <em>guinea pig</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/hY1QyBH.jpeg" alt="Chessie">
+                </li>
+                <li>
+                    <span class="memorial-naam">Marshie I <em>guinea pig</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/fvR0koP.jpeg" alt="Marshie I">
+                </li>
+                <li>
+                    <span class="memorial-naam">Marie "Potato" Brouwer <em>guinea pig</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/kKBXGFD.jpeg" alt="Marie Potato">
+                </li>
+                <li>
+                    <span class="memorial-naam">Angelus <em>guinea pig</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/wwnFrvM.jpeg" alt="Angelus">
+                </li>
+                <li>
+                    <span class="memorial-naam">Spike <em>guinea pig · "Spikey"</em></span>
+                    <img class="hover-foto" src="https://i.imgur.com/NUZuNWI.jpeg" alt="Spike">
+                </li>
+                <li>
+                    <span class="memorial-naam">Teddie <em>guinea pig</em></span>
+                    <img class="hover-foto" src="" alt="Teddie">
+                </li>
+                <li>
+                    <span class="memorial-naam">Marshie II <em>albino guinea pig</em></span>
+                    <img class="hover-foto" src="" alt="Marshie II">
+                </li>
+            </ul>
+
+            <!-- Full photo cards with crossfade for pets we have both photos of -->
+            <div class="foto-container">
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/hY1QyBH.jpeg" alt="Chessie">
+                        <img class="foto-jong"      src="https://i.imgur.com/8nNIuCP.jpeg" alt="Baby Chessie">
+                    </div>
+                    <h3 class="fotolijstje-name">Chessie</h3>
+                    <p class="fotolijstje-soort">Guinea Pig · stepmother</p>
+                    <p class="fotolijstje-tekst">Sister of Aria and Marshie I. She later became the gentle stepmother to three nest sisters — Marie "Potato", Freya, and Chi-chi — raising them all as her own.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/fvR0koP.jpeg" alt="Marshie I">
+                        <img class="foto-jong"      src="https://i.imgur.com/gyHQU79.jpeg" alt="Baby Marshie I">
+                    </div>
+                    <h3 class="fotolijstje-name">Marshie I</h3>
+                    <p class="fotolijstje-soort">Guinea Pig · elder sister</p>
+                    <p class="fotolijstje-tekst">A beautiful white cavia, one of three sisters with Aria and Chessie. She carried herself with quiet grace from the very beginning.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/kKBXGFD.jpeg" alt="Marie Potato">
+                        <img class="foto-jong"      src="https://i.imgur.com/JPJiaH7.jpeg" alt="Baby Marie Potato">
+                    </div>
+                    <h3 class="fotolijstje-name">Marie "Potato" Brouwer</h3>
+                    <p class="fotolijstje-soort">Guinea Pig · next generation</p>
+                    <p class="fotolijstje-tekst">A brown and white cavia with a nickname to match her sweet, lumpy charm. One of three nest sisters with Freya and Chi-chi, raised together by their stepmother Chessie. She had a way of making every day feel a little lighter.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/wwnFrvM.jpeg" alt="Angelus">
+                        <img class="foto-jong"      src="https://i.imgur.com/IQGgW0e.jpeg" alt="Baby Angelus">
+                    </div>
+                    <h3 class="fotolijstje-name">Angelus</h3>
+                    <p class="fotolijstje-soort">Guinea Pig</p>
+                    <p class="fotolijstje-tekst">Named after the vampire, paired in name with his brother Spike. One of four brothers — with Teddie and Marshie II — and a gentle soul with an angelic name to match.</p>
+                </div>
+
+                <div class="fotolijstje">
+                    <div class="foto-wrapper">
+                        <img class="foto-in-lijstje" src="https://i.imgur.com/NUZuNWI.jpeg" alt="Spike">
+                        <img class="foto-jong"      src="https://i.imgur.com/aLDb2yP.jpeg" alt="Baby Spike">
+                    </div>
+                    <h3 class="fotolijstje-name">Spike <span style="font-size:0.85rem; opacity:0.7; font-style:italic;">"Spikey"</span></h3>
+                    <p class="fotolijstje-soort">Guinea Pig</p>
+                    <p class="fotolijstje-tekst">Named after the vampire, paired in name with his brother Angelus. Fearless, curious, and always the first to investigate.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== BOTTOM LINKS ===== -->
+        <section class="sectie-kaart">
+            <div class="knoppen-container">
+                <a class="knop" href="https://nl.wikipedia.org/wiki/Cavia%27s" target="_blank">Learn about Guinea Pigs</a>
+                <a class="knop" href="https://nl.wikipedia.org/wiki/Kat_(dier)" target="_blank">Learn about Cats</a>
+            </div>
+        </section>
+
+        <footer class="pagina-footer">
+            Made with ❤️ by Marc &amp; Lena · Amsterdam
+        </footer>
+
+    </div>
+</body>
 </html>
