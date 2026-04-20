@@ -143,64 +143,6 @@
             color: var(--warm-brown);
         }
 
-        /* ===== HOVER NAME LIST ===== */
-        ul.dieren-lijst {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 12px;
-            margin-bottom: 36px;
-        }
-
-        ul.dieren-lijst li { position: relative; }
-
-        .animal-names {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(107, 63, 31, 0.08);
-            color: var(--warm-brown);
-            font-size: 0.95rem;
-            cursor: default;
-            transition: all 0.25s ease;
-            border: 1px solid transparent;
-        }
-
-        .animal-names em {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-left: 4px;
-        }
-
-        ul.dieren-lijst li:hover .animal-names {
-            background: var(--deep-green);
-            color: var(--warm-cream);
-            border-color: var(--soft-gold);
-        }
-
-        .hover-foto {
-            opacity: 0;
-            visibility: hidden;
-            width: 200px; height: 200px;
-            object-fit: cover;
-            border: 4px solid white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            position: absolute;
-            top: 150%;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: opacity 0.3s ease;
-            z-index: 100;
-        }
-
-        ul.dieren-lijst li:hover .hover-foto,
-        ul.memorial-lijst li:hover .hover-foto {
-            opacity: 1;
-            visibility: visible;
-        }
-
         /* ===== PHOTO CARDS (current family) ===== */
         .foto-container {
             display: flex;
@@ -340,40 +282,6 @@
             line-height: 1.7;
         }
 
-        ul.memorial-lijst {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 12px;
-            margin-bottom: 36px;
-        }
-
-        ul.memorial-lijst li { position: relative; }
-
-        .memorial-naam {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(201, 149, 42, 0.4);
-            color: var(--warm-cream);
-            font-size: 0.95rem;
-            cursor: default;
-            transition: all 0.25s ease;
-        }
-
-        .memorial-naam em {
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin-left: 4px;
-        }
-
-        ul.memorial-lijst li:hover .memorial-naam {
-            background: rgba(201, 149, 42, 0.25);
-            border-color: var(--soft-gold);
-        }
-
         /*
          * MEMORIAL PHOTO CARDS — dark-variant
          * ------------------------------------
@@ -488,29 +396,6 @@
             <h2 class="sectie-titel">Our Current Family</h2>
             <div class="sectie-lijn"></div>
 
-            <ul class="dieren-lijst">
-                <li>
-                    <span class="animal-names">Myrrhe <em>cat</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/gRvS2Pv.jpeg" alt="Myrrhe today">
-                </li>
-                <li>
-                    <span class="animal-names">Nirani <em>cat</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/4C4WbbM.jpeg" alt="Nirani today">
-                </li>
-                <li>
-                    <span class="animal-names">Mr. Bubbles <em>guinea pig</em></span>
-                    <img class="hover-foto" src="" alt="Mr. Bubbles">
-                </li>
-                <li>
-                    <span class="animal-names">Chi-chi <em>guinea pig</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/7evdHQD.jpeg" alt="Chi-chi today">
-                </li>
-                <li>
-                    <span class="animal-names">Freya <em>guinea pig 🇩🇰</em></span>
-                    <img class="hover-foto" src="" alt="Freya">
-                </li>
-            </ul>
-
             <div class="foto-container">
 
                 <div class="fotolijstje">
@@ -569,42 +454,6 @@
                 These little ones are no longer with us, but they are never forgotten.<br>
                 Every one of them left a paw print on our hearts. 🌿
             </p>
-
-            <!-- Overview list — hover a name to preview -->
-            <ul class="memorial-lijst">
-                <li>
-                    <span class="memorial-naam">Aria <em>guinea pig</em></span>
-                    <img class="hover-foto" src="" alt="Aria">
-                </li>
-                <li>
-                    <span class="memorial-naam">Chessie <em>guinea pig</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/hY1QyBH.jpeg" alt="Chessie">
-                </li>
-                <li>
-                    <span class="memorial-naam">Marshie I <em>guinea pig</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/fvR0koP.jpeg" alt="Marshie I">
-                </li>
-                <li>
-                    <span class="memorial-naam">Marie "Potato" Brouwer <em>guinea pig</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/kKBXGFD.jpeg" alt="Marie Potato">
-                </li>
-                <li>
-                    <span class="memorial-naam">Angelus <em>guinea pig</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/wwnFrvM.jpeg" alt="Angelus">
-                </li>
-                <li>
-                    <span class="memorial-naam">Spike <em>guinea pig · "Spikey"</em></span>
-                    <img class="hover-foto" src="https://i.imgur.com/NUZuNWI.jpeg" alt="Spike">
-                </li>
-                <li>
-                    <span class="memorial-naam">Teddie <em>guinea pig</em></span>
-                    <img class="hover-foto" src="" alt="Teddie">
-                </li>
-                <li>
-                    <span class="memorial-naam">Marshie II <em>albino guinea pig</em></span>
-                    <img class="hover-foto" src="" alt="Marshie II">
-                </li>
-            </ul>
 
             <!-- Full photo cards with crossfade for pets we have both photos of -->
             <div class="foto-container">
